@@ -14,30 +14,42 @@ void _split(const char *str, char **cmd, char **value)
 	char *copy = malloc(strlen(str) + 1);
 
 	if (copy == NULL)
-		goto _exit_;
-	*cmd = NULL;
-	*value = NULL;
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 	strcpy(copy, str);
+
 	token = strtok(copy, " \n\t");
 	if (token != NULL)
 	{
 		*cmd = malloc(strlen(token) + 1);
 		if (*cmd == NULL)
-			goto _exit_;
+		{
+			fprintf(stderr, "Error: malloc failed\n");
+			exit(EXIT_FAILURE);
+		}
 		strcpy(*cmd, token);
 		token = strtok(NULL, " \n\t");
 		if (token != NULL)
 		{
 			*value = malloc(strlen(token) + 1);
 			if (*value == NULL)
-				goto _exit_;
+			{
+				fprintf(stderr, "Error: malloc failed\n");
+				exit(EXIT_FAILURE);
+			}
 			strcpy(*value, token);
 		}
+		else
+			*value = NULL;
+	}
+	else
+	{
+		*cmd = NULL;
+		*value = NULL;
 	}
 	free(copy);
-_exit_:
-	fprintf(stderr, "Error: malloc failed\n");
-	exit(EXIT_FAILURE);
 }
 /**
  * isNumber - chechs if str is a number
