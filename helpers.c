@@ -62,10 +62,15 @@ int isNumber(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
+		if (str[i] == '-')
+			continue;
 		if (str[i] - '0' >= 0 && str[i] - '0' <= 9)
 			r = 1;
 		else
+		{
 			r = 0;
+			break;
+		}
 	}
 	return (r);
 }

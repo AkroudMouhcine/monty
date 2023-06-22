@@ -1,7 +1,6 @@
-push 0 Push 0 onto the stack
-push 1 Push 1 onto the stack
-test
-push 2d
+push 1-1
+pall
+push 2d2
   push 3
                    pall    
 
