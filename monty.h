@@ -1,6 +1,11 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define MAX_LINE_LENGTH 1024
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -31,4 +36,25 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct cmd_s - cmd_s struct
+ * @opcode: the opcode
+ * @value: the int value
+ */
+typedef struct cmd_s
+{
+	char *opcode;
+	char *value;
+} cmd_t;
+
+extern cmd_t cmd;
+
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+
+/* helpers.c */
+void run(stack_t **stack, int len);
+void _split(const char *str, char **cmd, char **value);
+int isNumber(char *str);
+void free_stack(stack_t **stack);
 #endif
