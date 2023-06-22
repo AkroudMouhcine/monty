@@ -63,10 +63,9 @@ int isNumber(char *str)
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] - '0' >= 0 && str[i] - '0' <= 9)
-		{
 			r = 1;
-			break;
-		}
+		else
+			r = 0;
 	}
 	return (r);
 }
@@ -113,5 +112,15 @@ void run(stack_t **stack, int len)
 			break;
 		}
 		i++;
+	}
+
+	if (cmd.opcode && insts[i].opcode == NULL)
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", len, cmd.opcode);
+		free(cmd.opcode);
+		free(cmd.value);
+		free_stack(stack);
+		fclose(cmd.file);
+		exit(EXIT_FAILURE);
 	}
 }
