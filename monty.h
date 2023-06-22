@@ -45,6 +45,7 @@ typedef struct cmd_s
 {
 	char *opcode;
 	char *value;
+	FILE *file;
 } cmd_t;
 
 extern cmd_t cmd;

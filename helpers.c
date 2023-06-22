@@ -58,13 +58,13 @@ void _split(const char *str, char **cmd, char **value)
  */
 int isNumber(char *str)
 {
-	int r = 1, i;
+	int r = 0, i;
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] - '0' < 0 && str[i] - '0' > 9)
+		if (str[i] - '0' >= 0 && str[i] - '0' <= 9)
 		{
-			r = 0;
+			r = 1;
 			break;
 		}
 	}

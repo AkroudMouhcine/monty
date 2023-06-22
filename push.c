@@ -11,10 +11,8 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
 
-	(void)stack;
 	if (cmd.value && isNumber(cmd.value))
 	{
-
 		new = malloc(sizeof(stack_t));
 		if (new == NULL)
 		{
@@ -36,6 +34,10 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
+		free(cmd.opcode);
+		free(cmd.value);
+		free_stack(stack);
+		fclose(cmd.file);
 		fprintf(stderr, "L<%d>: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}

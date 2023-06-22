@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	file = fopen(argv[1], "r");
+	cmd.file = file;
 	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
@@ -27,9 +28,10 @@ int main(int argc, char *argv[])
 
 	while (fgets(line, sizeof(line), file) != NULL)
 	{
+		nline++;
 		_split(line, &cmd.opcode, &cmd.value);
 		if (cmd.opcode)
-			run(&stack, ++nline);
+			run(&stack, nline);
 		free(cmd.opcode);
 		free(cmd.value);
 	}
