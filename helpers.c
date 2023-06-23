@@ -110,6 +110,7 @@ void run(stack_t **stack, int len)
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
+		{"nop", nop},
 		{NULL, NULL}};
 	int i = 0;
 
