@@ -112,6 +112,7 @@ void run(stack_t **stack, int len)
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
+		{"div", _div},
 		{NULL, NULL}};
 	int i = 0;
 
