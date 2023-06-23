@@ -118,6 +118,8 @@ void run(stack_t **stack, int len)
 		{NULL, NULL}};
 	int i = 0;
 
+	if (cmd.opcode[0] == '#')
+		return;
 	while (insts[i].opcode)
 	{
 		if (strcmp(insts[i].opcode, cmd.opcode) == 0)
