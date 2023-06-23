@@ -1,5 +1,6 @@
-push 5
+#push 5
 #push 7
-push 2
+push 72
+pchar
 #mod
-pall
+#pall

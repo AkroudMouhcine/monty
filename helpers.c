@@ -115,6 +115,7 @@ void run(stack_t **stack, int len)
 		{"div", _div},
 		{"mul", mul},
 		{"mod", mod},
+		{"pchar", pchar},
 		{NULL, NULL}};
 	int i = 0;
 
