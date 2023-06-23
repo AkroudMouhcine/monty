@@ -107,6 +107,7 @@ void run(stack_t **stack, int len)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}};
 	int i = 0;
 
