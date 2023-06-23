@@ -1,20 +1,20 @@
 #include "monty.h"
 
 /**
- * _div -  divides the second top element of the stack by
- * the top element of the stack.
+ * mod -  computes the rest of the division of the second
+ * top element of the stack by the top element of the stack.
  * @stack: stack input
  * @line_number: int input
  * Return: void.
  */
 
-void _div(stack_t **stack, unsigned int line_number)
+void mod(stack_t **stack, unsigned int line_number)
 {
 	if (*stack && (*stack)->next)
 	{
 		if ((*stack)->n != 0)
 		{
-			(*stack)->next->n /= (*stack)->n;
+			(*stack)->next->n %= (*stack)->n;
 			pop(stack, line_number);
 			return;
 		}
@@ -26,7 +26,7 @@ void _div(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
 		goto _free_;
 	}
 _free_:
