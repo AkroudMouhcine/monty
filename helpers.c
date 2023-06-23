@@ -106,6 +106,7 @@ void run(stack_t **stack, int len)
 	instruction_t insts[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}};
 	int i = 0;
 
